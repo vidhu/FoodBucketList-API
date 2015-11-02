@@ -9,5 +9,19 @@ $app->get('/search/{term}', function($req, $res, $args){
     );
    
     $results = $yelp->search($options);
-    echo (isset($_GET['callback'])?$_GET['callback']:'')."([".json_encode($results)."])";
+    $trimmed_results = array();
+    foreach ($results->businesses as $business){
+        $trimmed_results[] = array(
+            'id' => $business->id,
+            'name' => $business->name
+        );
+    }
+
+    
+    if(isset($_GET['callback'])){
+        echo $_GET['callback']."([".json_encode($trimmed_results)."])";
+    }else{
+        echo json_encode($trimmed_results);
+    }
+    
 });
