@@ -1,0 +1,26 @@
+#ant specific
+dist/
+build/
+
+#netbeans specific
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+
+#general swap/backup files
+*.so
+*.log
+*.out
+*~
+*.swp
+*.DS_Store
+*.lock
+
+#composer ignore
+composer.phar
+vendor/
