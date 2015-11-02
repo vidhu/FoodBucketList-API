@@ -19,7 +19,7 @@ $app->get('/search/{term}', function($req, $res, $args){
 
     
     if(isset($_GET['callback'])){
-        echo $_GET['callback']."([".json_encode($trimmed_results)."])";
+        echo $_GET['callback']."(".json_encode($trimmed_results).")";
     }else{
         echo json_encode($trimmed_results);
     }
