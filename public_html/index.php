@@ -14,7 +14,7 @@ $container['yelp'] = function($container){
     ));
     $client->setDefaultLocation('Boston, MA')
         ->setDefaultTerm('Sushi')
-        ->setSearchLimit(5);
+        ->setSearchLimit(10);
     return $client;
 };
 
