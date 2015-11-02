@@ -1,6 +1,6 @@
 # Food Bucket List - API
 
-This is the backend for Food Bucket List. It is built upon the SlimFramework in php. 
+This is the backend for Food Bucket List. It is built upon the [SlimFramework](https://github.com/slimphp/slim) which is written in php. 
 
 It provides api access to:
 
