@@ -32,7 +32,7 @@ $app->get('/search/id/{id}', function($req, $res, $args){
     $yelp = $this->getContainer()->get('yelp');
     
     //Get json data of business with specified id
-    $results = $yelp->getBusiness($args['id']);
+    $results = $yelp->getBusiness(urldecode($args['id']));
     
     //Return json/jsonp content
     if(isset($_GET['callback'])){
