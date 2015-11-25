@@ -25,3 +25,19 @@ $app->get('/search/{term}', function($req, $res, $args){
     }
     
 });
+
+$app->get('/search/id/{id}', function($req, $res, $args){
+   
+    //Get yelp API Object
+    $yelp = $this->getContainer()->get('yelp');
+    
+    //Get json data of business with specified id
+    $results = $yelp->getBusiness($args['id']);
+    
+    //Return json/jsonp content
+    if(isset($_GET['callback'])){
+        echo $_GET['callback']."(".json_encode($results).")";
+    }else{
+        echo json_encode($results);
+    }
+});
