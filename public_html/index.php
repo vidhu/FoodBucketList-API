@@ -42,6 +42,6 @@ $app->get('/', function(){
 
 //Routes
 require_once '../app/routes/Search.php';
-
+require_once '../app/routes/Bucket.php';
 
 $app->run();
