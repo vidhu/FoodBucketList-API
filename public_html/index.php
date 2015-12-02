@@ -4,6 +4,8 @@ require_once '../app/vendor/autoload.php';
 
 //Dependency injection container
 $container = new \Slim\Container();
+
+//Yelp API
 $container['yelp'] = function($container){
     $client = new Stevenmaguire\Yelp\Client(array(
       'consumer_key' => 'OLM18X5Gse5bdiTcTDe3SQ',
@@ -16,6 +18,20 @@ $container['yelp'] = function($container){
         ->setDefaultTerm('Sushi')
         ->setSearchLimit(10);
     return $client;
+};
+
+//Database Instance
+$container['DB'] = function($container){
+    //Create new database connection
+    $db = new mysqli('nom.crxozhxstjvk.us-east-1.rds.amazonaws.com:3306', 'nom', 'nomnom', 'nom_db');
+    
+    //Die if error
+    if($db->connect_errno > 0){
+        die('Unable to connect to data [' . $db->connect_error . ']');
+    }
+    
+    //Return instance of database
+    return $db;
 };
 
 //Setup the application
