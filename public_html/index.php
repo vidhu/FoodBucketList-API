@@ -23,7 +23,7 @@ $container['yelp'] = function($container){
 //Database Instance
 $container['DB'] = function($container){
     //Create new database connection
-    $db = new mysqli('nom.crxozhxstjvk.us-east-1.rds.amazonaws.com:3306', 'nom', 'nomnom', 'nom_db');
+    $db = new mysqli('nom.crxozhxstjvk.us-east-1.rds.amazonaws.com', 'nom', 'nomnom', 'nom_db');
     
     //Die if error
     if($db->connect_errno > 0){
