@@ -27,8 +27,8 @@ class FBAuthMiddleWare {
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function __invoke($request, $response, $next) {
-        if (isset($_GET['accessToken'])) {
-            $accessToken = $_GET['accessToken'];
+        if (isset($_REQUEST['accessToken'])) {
+            $accessToken = $_REQUEST['accessToken'];
             $this->fb->setDefaultAccessToken($accessToken);
         } else {
             /* @var $helper FacebookJavaScriptHelper */
