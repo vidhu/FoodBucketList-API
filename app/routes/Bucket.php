@@ -2,7 +2,7 @@
 
 $app->get('/bucket/{id}', function($req, $res, $args){
     //$db = $this->getContainer()->get('DB');
-    
+    var_dump($this->get('DB'));
     
     echo "Return bucket list";
 });

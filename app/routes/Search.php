@@ -1,7 +1,7 @@
 <?php
 $app->get('/search/{term}', function($req, $res, $args){
     
-    $yelp = $this->getContainer()->get('yelp');
+    $yelp = $this->get('yelp');
 
     $options = array(
       'term' => $args['term'], 
