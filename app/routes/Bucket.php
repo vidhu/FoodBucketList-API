@@ -56,14 +56,14 @@ $app->get('/bucket/{id}', function($req, $res, $args){
 
 //Add a new bucket
 $app->post('/bucket', function($req, $res, $args){
-    if(empty($_POST['bucket-name'])){
-        echo "bucket-name should be specified";
+    if(empty($_POST['bucketname'])){
+        echo "bucketname should be specified";
         return $res->withStatus(400);
     }
     
     $userID = $args['userid'];
-    $bucketName = $_POST['bucket-name'];
-    $description = (!empty($_POST['bucket-description'])) ? $_POST['bucket-description'] : "";
+    $bucketName = $_POST['bucketname'];
+    $description = (!empty($_POST['bucketdescription'])) ? $_POST['bucketdescription'] : "";
     
     /* @var $db mysqli */
     $db = $this->get('DB');
@@ -77,6 +77,7 @@ $app->post('/bucket', function($req, $res, $args){
     }else{
         echo makeResult(true, "Bucket successfully created");
     }
+    return $res->withStatus(201);
 })->add(new FBAuthMiddleWare($app));
 
 //Add item in bucket
@@ -117,15 +118,15 @@ $app->post('/bucket/{id}', function($req, $res, $args){
 //Add a new bucket
 $app->put('/bucket/{id}', function($req, $res, $args){
     var_dump($_REQUEST);
-    if(empty($_POST['bucket-name'])){
-        echo "bucket-name should be specified";
+    if(empty($_POST['bucketname'])){
+        echo "bucketname should be specified";
         return $res->withStatus(400);
     }
     
     $userID = $args['userid'];
     $bucketID = $args['id'];
-    $bucketName = $_POST['bucket-name'];
-    $description = (!empty($_POST['bucket-description'])) ? $_POST['bucket-description'] : "";
+    $bucketName = $_POST['bucketname'];
+    $description = (!empty($_POST['bucketdescription'])) ? $_POST['bucketdescription'] : "";
     
     /* @var $db mysqli */
     $db = $this->get('DB');
