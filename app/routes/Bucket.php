@@ -81,15 +81,10 @@ $app->post('/bucket', function($req, $res, $args){
 })->add(new FBAuthMiddleWare($app));
 
 //Add item in bucket
-$app->post('/bucket/{id}', function($req, $res, $args){
-    if(empty($_POST['businessID'])){
-        echo makeResult(false, "businessID should be specified");
-        return;
-    }
-    
+$app->post('/bucket/{id}/{businessid}', function($req, $res, $args){   
     $userID = $args['userid'];
     $bucketID = $args['id'];
-    $businessID = $_POST['businessID'];
+    $businessID = $args['businessid'];
     
     /* @var $db mysqli */
     $db = $this->get('DB');
