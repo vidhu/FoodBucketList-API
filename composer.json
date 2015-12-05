@@ -1,10 +1,11 @@
 {
-   "config": {
+    "config": {
         "vendor-dir": "app/vendor"
     },
     "require": {
         "slim/slim": "^3.0@RC",
         "stevenmaguire/yelp-php": "^1.4",
-      "guzzlehttp/guzzle": "^6.1"
+        "guzzlehttp/guzzle": "^6.1",
+        "facebook/php-sdk-v4": "^5.0"
     }
 }
