@@ -29,7 +29,7 @@ $app->get('/search/{term}', function($req, $res, $args){
 $app->get('/search/id/{id}', function($req, $res, $args){
    
     //Get yelp API Object
-    $yelp = $this->getContainer()->get('yelp');
+    $yelp = $this->get('yelp');
     
     //Get json data of business with specified id
     $results = $yelp->getBusiness(urldecode($args['id']));
