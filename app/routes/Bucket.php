@@ -73,7 +73,7 @@ $app->post('/bucket', function($req, $res, $args){
     $stmt->execute();
     
     if($db->error){
-        echo makeResult(false, "MySQL error: ".$db->errno);
+        echo makeResult(false, "MySQL error: ".$db->errno." Bucket probably already exists");
     }else{
         echo makeResult(true, "Bucket successfully created");
     }
