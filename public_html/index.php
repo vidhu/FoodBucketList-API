@@ -46,6 +46,12 @@ $container['DB'] = function($container) {
 
 //Setup the application
 $app = new \Slim\App($container);
+$app->add(function($req, $res, $next){
+    /* @var $res \Slim\Http\Response */
+    $res = $res->withHeader('Access-Control-Allow-Origin', '*');
+    $res = $res->withHeader('Access-Control-Max-Age', '1000');
+    return $res;
+});
 $app->get('/', function() {
     echo "Home Page";
 });
