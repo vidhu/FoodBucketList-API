@@ -75,7 +75,7 @@ $app->post('/bucket', function($req, $res, $args){
     if($db->error){
         echo makeResult(false, "MySQL error: ".$db->errno." Bucket probably already exists");
     }else{
-        echo makeResult(true, "Bucket successfully created");
+        echo makeResult(true, $db->insert_id);
     }
     return $res->withStatus(201);
 })->add(new FBAuthMiddleWare($app));
