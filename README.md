@@ -14,4 +14,4 @@ cd website-folder/
 git clone https://github.com/vidhu/FoodBucketList-API.git
 composer install
 ```
-rename `config.sample.php` to `config.php` and fill out the configuration details
+Rename `config.sample.php` to `config.php` and fill out the configuration details
