@@ -52,7 +52,7 @@ $app->add(function($req, $res, $next){
     $res = $res->withHeader('Content-type', 'application/json');
     $res = $res->withHeader('Access-Control-Allow-Origin', '*');
     $res = $res->withHeader('Access-Control-Max-Age', '1000');
-    $res = $res->withHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+    //$res = $res->withHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
     
     return $res;
 });
