@@ -14,10 +14,10 @@ $container = new \Slim\Container();
 //Yelp API
 $container['yelp'] = function($container) {
     $client = new Stevenmaguire\Yelp\Client(array(
-        'consumer_key' => 'OLM18X5Gse5bdiTcTDe3SQ',
-        'consumer_secret' => 'ryd5BeZBQxDtYRU98OLSKkzsM-4',
-        'token' => 'RwUFD2h4Ty760lmwHLJ8BRQGGk_DkDc5',
-        'token_secret' => 'Yuzt1JSEyLyiLRMBYQqKIn_ek0Q',
+        'consumer_key' => 'Kvn1dhfh4V1t5D_B0hj1yw',
+        'consumer_secret' => '7TQE7UFvF0eypix1huTr3KBIN8o',
+        'token' => 'BkeIzCexlPmW5jKWvb4xgvqp4ABpDCmU',
+        'token_secret' => 'fIjoMWwwxgyNWDfVwC_rEYbdIzU',
         'api_host' => 'api.yelp.com'
     ));
     $client->setDefaultLocation('Boston, MA')
