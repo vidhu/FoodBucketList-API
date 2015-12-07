@@ -14,11 +14,11 @@ $container = new \Slim\Container();
 //Yelp API
 $container['yelp'] = function($container) {
     $client = new Stevenmaguire\Yelp\Client(array(
-        'consumer_key' => $CONFIG['yelp']['consumer_key'],
-        'consumer_secret' => $CONFIG['yelp']['consumer_secret'],
-        'token' => $CONFIG['yelp']['token'],
-        'token_secret' => $CONFIG['yelp']['token_secret'],
-        'api_host' => $CONFIG['yelp']['api_host']
+        'consumer_key' => $GLOBALS['yelp']['consumer_key'],
+        'consumer_secret' => $GLOBALS['yelp']['consumer_secret'],
+        'token' => $GLOBALS['yelp']['token'],
+        'token_secret' => $GLOBALS['yelp']['token_secret'],
+        'api_host' => $GLOBALS['yelp']['api_host']
     ));
     $client->setDefaultLocation('Boston, MA')
             ->setDefaultTerm('Sushi')
@@ -28,8 +28,8 @@ $container['yelp'] = function($container) {
 
 $container['fb'] = function($container) {
     $fb = new Facebook\Facebook([
-        'app_id' => $CONFIG['fb']['app_id'],
-        'app_secret' => $CONFIG['fb']['app_secret'],
+        'app_id' => $GLOBALS['fb']['app_id'],
+        'app_secret' => $GLOBALS['fb']['app_secret'],
         'default_graph_version' => 'v2.2',
     ]);
     return $fb;
@@ -39,10 +39,10 @@ $container['fb'] = function($container) {
 $container['DB'] = function($container) {
     //Create new database connection
     $db = new mysqli(
-        $CONFIG['mysql']['host'],
-        $CONFIG['mysql']['username'],
-        $CONFIG['mysql']['password'],
-        $CONFIG['mysql']['database']
+        $GLOBALS['mysql']['host'],
+        $GLOBALS['mysql']['username'],
+        $GLOBALS['mysql']['password'],
+        $GLOBALS['mysql']['database']
     );
 
     //Die if error
