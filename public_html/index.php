@@ -4,6 +4,7 @@ header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 
 require_once '../app/vendor/autoload.php';
+require_once '../config.php';
 require_once '../app/lib/AchievementManager.php';
 require_once '../app/middleware/FBAuthMiddleWare.php';
 
@@ -13,11 +14,11 @@ $container = new \Slim\Container();
 //Yelp API
 $container['yelp'] = function($container) {
     $client = new Stevenmaguire\Yelp\Client(array(
-        'consumer_key' => 'Kvn1dhfh4V1t5D_B0hj1yw',
-        'consumer_secret' => '7TQE7UFvF0eypix1huTr3KBIN8o',
-        'token' => 'BkeIzCexlPmW5jKWvb4xgvqp4ABpDCmU',
-        'token_secret' => 'fIjoMWwwxgyNWDfVwC_rEYbdIzU',
-        'api_host' => 'api.yelp.com'
+        'consumer_key' => $CONFIG['yelp']['consumer_key'],
+        'consumer_secret' => $CONFIG['yelp']['consumer_secret'],
+        'token' => $CONFIG['yelp']['token'],
+        'token_secret' => $CONFIG['yelp']['token_secret'],
+        'api_host' => $CONFIG['yelp']['api_host']
     ));
     $client->setDefaultLocation('Boston, MA')
             ->setDefaultTerm('Sushi')
@@ -27,8 +28,8 @@ $container['yelp'] = function($container) {
 
 $container['fb'] = function($container) {
     $fb = new Facebook\Facebook([
-        'app_id' => '1206232049392333',
-        'app_secret' => '61e82c053df81c514fe890ad42678eb1',
+        'app_id' => $CONFIG['fb']['app_id'],
+        'app_secret' => $CONFIG['fb']['app_secret'],
         'default_graph_version' => 'v2.2',
     ]);
     return $fb;
@@ -37,7 +38,12 @@ $container['fb'] = function($container) {
 //Database Instance
 $container['DB'] = function($container) {
     //Create new database connection
-    $db = new mysqli('nom.crxozhxstjvk.us-east-1.rds.amazonaws.com', 'nom', 'nomnom', 'nom_db');
+    $db = new mysqli(
+        $CONFIG['mysql']['host'],
+        $CONFIG['mysql']['username'],
+        $CONFIG['mysql']['password'],
+        $CONFIG['mysql']['database']
+    );
 
     //Die if error
     if ($db->connect_errno > 0) {
