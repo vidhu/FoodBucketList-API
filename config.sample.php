@@ -1,17 +1,17 @@
 <?php
 //MySQL
-$CONFIG['mysql']['host'] = "";
-$CONFIG['mysql']['username'] = "";
-$CONFIG['mysql']['password'] = "";
-$CONFIG['mysql']['database'] = "";
+$GLOBALS['mysql']['host'] = "";
+$GLOBALS['mysql']['username'] = "";
+$GLOBALS['mysql']['password'] = "";
+$GLOBALS['mysql']['database'] = "";
 
 //Yelp
-$CONFIG['yelp']['consumer_key'] = "";
-$CONFIG['yelp']['consumer_secret'] = "";
-$CONFIG['yelp']['token'] = "";
-$CONFIG['yelp']['token_secret'] = "";
-$CONFIG['yelp']['api_host'] = "";
+$GLOBALS['yelp']['consumer_key'] = "";
+$GLOBALS['yelp']['consumer_secret'] = "";
+$GLOBALS['yelp']['token'] = "";
+$GLOBALS['yelp']['token_secret'] = "";
+$GLOBALS['yelp']['api_host'] = "";
 
 //Facebook
-$CONFIG['fb']['app_id'] = "";
-$CONFIG['fb']['app_secret'] = "";
+$GLOBALS['fb']['app_id'] = "";
+$GLOBALS['fb']['app_secret'] = "";
