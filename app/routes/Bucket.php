@@ -169,7 +169,7 @@ $app->delete('/bucket/{id}', function($req, $res, $args){
     }else{
         echo makeResult(true, "Deleted bucket successfully");
     }
-})->add(new FBAuthMiddleWare($app));;
+})->add(new FBAuthMiddleWare($app));
 
 //Delete item in bucket
 $app->delete('/bucket/{id}/{businessid}', function($req, $res, $args){

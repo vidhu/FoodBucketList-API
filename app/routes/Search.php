@@ -4,8 +4,9 @@ $app->get('/search/{term}', function($req, $res, $args){
     $yelp = $this->get('yelp');
 
     $options = array(
-      'term' => $args['term'], 
-      'location' => 'Boston, MA'
+        'term' => $args['term'], 
+        'location' => 'Boston, MA',
+        'category_filter' => 'food'
     );
    
     $results = $yelp->search($options);
